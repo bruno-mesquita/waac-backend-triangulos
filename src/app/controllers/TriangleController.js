@@ -2,9 +2,14 @@ import Triangle from '../models/Triangle';
 
 class TriangleController {
   async store(req, res) {
-    const triangle = await Triangle.create(req.body);
+    const { content, id } = await Triangle.create(req.body);
 
-    return res.json(triangle);
+    return res.json({
+      triangle: {
+        id,
+        content,
+      },
+    });
   }
 }
 

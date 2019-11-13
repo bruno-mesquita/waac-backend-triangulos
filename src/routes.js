@@ -4,6 +4,6 @@ import TriangleController from './app/controllers/TriangleController';
 
 const routes = new Router();
 
-routes.post('/triangle', TriangleController.store);
+routes.post('/triangles', TriangleController.store);
 
 export default routes;

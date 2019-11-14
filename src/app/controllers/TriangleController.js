@@ -4,6 +4,7 @@ import sum from '../../functions/sum';
 
 class TriangleController {
   async store(req, res) {
+    const { content } = req.body;
     // Schema de Validação
     const schema = Yup.object().shape({
       content: Yup.array().required(),
@@ -14,17 +15,18 @@ class TriangleController {
       return res.status(401).json({ error: 'Falha na Validação' });
     }
 
-    // Criando instancia do objeto
-    const { content, id } = await Triangle.create(req.body);
+    // Somando o triangulo
+    const [result, selected] = sum(content);
 
-    const [result, numSelect] = sum(content);
+    // Criando instancia do objeto
+    const { id } = await Triangle.create({ content, selected, sum: result });
 
     return res.json({
       triangle: {
         id,
         content,
         result,
-        numSelect,
+        selected,
       },
     });
   }

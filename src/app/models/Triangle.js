@@ -14,6 +14,10 @@ const TriangleSchema = new Schema(
       type: Array,
       required: false,
     },
+    time: {
+      type: Date,
+      required: false,
+    },
   },
   {
     timestamps: true,

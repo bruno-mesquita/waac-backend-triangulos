@@ -16,10 +16,17 @@ class TriangleController {
     }
 
     // Somando o triangulo
+    const start = new Date().getMilliseconds();
     const [result, selected] = sum(content);
+    const time = new Date().getMilliseconds() - start;
 
     // Criando instancia do objeto
-    const { id } = await Triangle.create({ content, selected, sum: result });
+    const { id } = await Triangle.create({
+      content,
+      selected,
+      sum: result,
+      time,
+    });
 
     return res.json({
       triangle: {
@@ -27,6 +34,7 @@ class TriangleController {
         content,
         result,
         selected,
+        time,
       },
     });
   }

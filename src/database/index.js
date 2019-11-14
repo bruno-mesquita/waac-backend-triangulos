@@ -6,13 +6,10 @@ class Database {
   }
 
   mongo() {
-    this.mongoConnetion = mongoose.connect(
-      'mongodb://192.168.99.100:27017/waac',
-      {
-        useNewUrlParser: true,
-        useFindAndModify: true,
-      }
-    );
+    this.mongoConnetion = mongoose.connect(process.env.URL_MONGO, {
+      useNewUrlParser: true,
+      useFindAndModify: true,
+    });
   }
 }
 

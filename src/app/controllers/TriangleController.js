@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 import Triangle from '../models/Triangle';
+import sum from '../../functions/sum';
 
 class TriangleController {
   async store(req, res) {
@@ -16,10 +17,14 @@ class TriangleController {
     // Criando instancia do objeto
     const { content, id } = await Triangle.create(req.body);
 
+    const [result, numSelect] = sum(content);
+
     return res.json({
       triangle: {
         id,
         content,
+        result,
+        numSelect,
       },
     });
   }

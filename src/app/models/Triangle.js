@@ -6,6 +6,14 @@ const TriangleSchema = new Schema(
       type: Array,
       required: true,
     },
+    sum: {
+      type: Number,
+      required: false,
+    },
+    selected: {
+      type: Array,
+      required: false,
+    },
   },
   {
     timestamps: true,

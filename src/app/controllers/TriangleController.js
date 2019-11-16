@@ -12,7 +12,7 @@ class TriangleController {
 
     // Validando entradas
     if (!(await schema.isValid(req.body))) {
-      return res.status(401).json({ error: 'Falha na Validação' });
+      return res.status(400).json({ error: 'Falha na Validação' });
     }
 
     // Somando o triangulo

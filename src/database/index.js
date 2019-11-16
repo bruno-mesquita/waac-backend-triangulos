@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import configDB from '../config/database';
 
 class Database {
   constructor() {
@@ -6,7 +7,7 @@ class Database {
   }
 
   mongo() {
-    this.mongoConnetion = mongoose.connect(process.env.URL_MONGO, {
+    this.mongoConnetion = mongoose.connect(configDB.URL_MONGO, {
       useNewUrlParser: true,
       useFindAndModify: true,
     });

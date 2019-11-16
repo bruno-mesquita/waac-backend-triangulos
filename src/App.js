@@ -1,6 +1,6 @@
+import './bootstrap';
 import express from 'express';
 import cors from 'cors';
-import 'dotenv/config';
 
 // Routas
 import routes from './routes';
